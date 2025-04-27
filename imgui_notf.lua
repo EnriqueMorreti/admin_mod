@@ -12,35 +12,45 @@ local ToScreen = convertGameScreenCoordsToWindowScreenCoords
 local sX, sY = ToScreen(630, 438)
 local message = {}
 local typeStyle = {
-	{ -- 1 - normal message
-		text = imgui.ImColor(255, 255, 255, 255):GetVec4(),
-		rightBox = imgui.ImColor(0, 0, 0, 255):GetU32(),
+    { -- 1 - normal message
+        text = imgui.ImColor(255, 255, 255, 255):GetVec4(),
+        rightBox = imgui.ImColor(0, 0, 0, 255):GetU32(),
+        mainBox = {
+            imgui.ImColor(0, 0, 0, 170):GetU32(), -- left top
+            imgui.ImColor(0, 0, 0, 235):GetU32(), -- right top
+            imgui.ImColor(0, 0, 0, 235):GetU32(), -- left button
+            imgui.ImColor(0, 0, 0, 170):GetU32(), -- right button
+        }
+    },
+    { -- 2 - info message
+        text = imgui.ImColor(255, 255, 255, 255):GetVec4(),
+        rightBox = imgui.ImColor(0, 157, 194, 255):GetU32(),
+        mainBox = {
+            imgui.ImColor(0, 137, 174, 170):GetU32(), -- left top
+            imgui.ImColor(0, 137, 174, 235):GetU32(), -- right top
+            imgui.ImColor(0, 137, 174, 235):GetU32(), -- left button
+            imgui.ImColor(0, 137, 174, 170):GetU32(), -- right button
+        }
+    },
+    { -- 3 - error message
+        text = imgui.ImColor(255, 255, 255, 255):GetVec4(),
+        rightBox = imgui.ImColor(190, 40, 40, 255):GetU32(),
+        mainBox = {
+            imgui.ImColor(170, 20, 20, 170):GetU32(), -- left top
+            imgui.ImColor(170, 20, 20, 235):GetU32(), -- right top
+            imgui.ImColor(170, 20, 20, 235):GetU32(), -- left button
+            imgui.ImColor(170, 20, 20, 170):GetU32(), -- right button
+        }
+    },
+	{ -- 4 - jopa message
+	    text = imgui.ImColor(255, 255, 255, 255):GetVec4(),
+		rightBox = imgui.ImColor(70, 90, 150, 255):GetU32(),  -- ещё более тёмный фиолетовый
 		mainBox = {
-			imgui.ImColor(0, 0, 0, 170):GetU32(), -- left top
-			imgui.ImColor(0, 0, 0, 235):GetU32(), -- right top
-			imgui.ImColor(0, 0, 0, 235):GetU32(), -- left button
-			imgui.ImColor(0, 0, 0, 170):GetU32(), -- right button
-		}
-	},
-	{ -- 2 - info message
-		text = imgui.ImColor(255, 255, 255, 255):GetVec4(),
-		rightBox = imgui.ImColor(0, 157, 194, 255):GetU32(),
-		mainBox = {
-			imgui.ImColor(0, 137, 174, 170):GetU32(), -- left top
-			imgui.ImColor(0, 137, 174, 235):GetU32(), -- right top
-			imgui.ImColor(0, 137, 174, 235):GetU32(), -- left button
-			imgui.ImColor(0, 137, 174, 170):GetU32(), -- right button
-		}
-	},
-	{ -- 3 - error message
-		text = imgui.ImColor(255, 255, 255, 255):GetVec4(),
-		rightBox = imgui.ImColor(190, 40, 40, 255):GetU32(),
-		mainBox = {
-			imgui.ImColor(170, 20, 20, 170):GetU32(), -- left top
-			imgui.ImColor(170, 20, 20, 235):GetU32(), -- right top
-			imgui.ImColor(170, 20, 20, 235):GetU32(), -- left button
-			imgui.ImColor(170, 20, 20, 170):GetU32(), -- right button
-		}
+		    imgui.ImColor(100, 120, 180, 170):GetU32(), -- left top (ещё более тёмный фиолетовый)
+		    imgui.ImColor(100, 120, 180, 235):GetU32(), -- right top (ещё более тёмный фиолетовый)
+		    imgui.ImColor(100, 120, 180, 235):GetU32(), -- left button (ещё более тёмный фиолетовый)
+		    imgui.ImColor(100, 120, 180, 170):GetU32(), -- right button (ещё более тёмный фиолетовый)
+	    }
 	}
 }
 local msxMsg = 3
